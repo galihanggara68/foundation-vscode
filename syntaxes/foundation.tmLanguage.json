@@ -68,11 +68,11 @@
       "patterns": [
         {
           "name": "keyword.control.declaration.fdn",
-          "match": "\\b(entity|actor|value|enum|event|error|action|scenario)\\b"
+          "match": "\\b(entity|actor|value|enum|event|error|policy|slot|action|scenario)\\b"
         },
         {
           "name": "keyword.control.statement.fdn",
-          "match": "\\b(let|query|single|many|where|sort|asc|desc|limit|offset|validate|else|emit|return|step|when|expect|create|update)\\b"
+          "match": "\\b(let|query|single|many|where|sort|asc|desc|limit|offset|validate|require|else|emit|return|step|given|with|when|expect|returns|throws|stored|not_stored|emitted|create|update)\\b"
         },
         {
           "name": "keyword.operator.logical.fdn",
