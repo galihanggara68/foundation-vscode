@@ -1,0 +1,96 @@
+{
+  "name": "foundation-vscode",
+  "displayName": "Foundation",
+  "description": "Language support, syntax highlighting, and LSP intelligence for Foundation (.fdn) Blueprints",
+  "version": "0.1.0",
+  "publisher": "galihanggara68",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/galihanggara68/foundation-vscode"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "keywords": [
+    "foundation",
+    "blueprint",
+    "fdn",
+    "compiler",
+    "architecture"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "foundation",
+        "aliases": [
+          "Foundation",
+          "fdn"
+        ],
+        "extensions": [
+          ".fdn"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "foundation",
+        "scopeName": "source.fdn",
+        "path": "./syntaxes/foundation.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "foundation",
+        "path": "./snippets/foundation.code-snippets"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Foundation",
+      "properties": {
+        "foundation.lsp.path": {
+          "type": "string",
+          "default": "",
+          "description": "Path to the 'foundation' CLI binary executable. If empty, foundation will be resolved from your system PATH."
+        },
+        "foundation.lsp.trace": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Trace communication between VS Code and the Foundation Language Server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "node ./dist/test/runTest.js",
+    "package": "npx @vscode/vsce package --no-dependencies"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^2.24.0",
+    "mocha": "^10.3.0",
+    "typescript": "^5.3.3"
+  }
+}

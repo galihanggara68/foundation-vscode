@@ -1,0 +1,31 @@
+{
+  "Entity": {
+    "prefix": "entity",
+    "body": [
+      "entity ${1:Name} @table(name: \"${2:table_name}\") {",
+      "  id: UUID @pk",
+      "  $0",
+      "}"
+    ],
+    "description": "Declare a Foundation domain entity"
+  },
+  "Action": {
+    "prefix": "action",
+    "body": [
+      "action ${1:Name}(${2:input}) -> ${3:Return} @route(post: \"/${4:path}\") {",
+      "  $0",
+      "}"
+    ],
+    "description": "Declare a Foundation action pipeline"
+  },
+  "Scenario": {
+    "prefix": "scenario",
+    "body": [
+      "scenario \"${1:Scenario description}\" {",
+      "  when ${2:Action}()",
+      "  expect ${3:condition}",
+      "}"
+    ],
+    "description": "Declare an end-to-end scenario test"
+  }
+}
